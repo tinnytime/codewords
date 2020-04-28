@@ -8,6 +8,7 @@
 
       <div v-if="boardId">
         <Board :boardId="boardId" />
+        <Tally :tallyRed="tallyRed" :tallyBlue="tallyBlue" />
       </div>
     </div>
   </div>
@@ -16,15 +17,16 @@
 <script>
 
 import Board from './components/Board.vue'
+import Tally from './components/Tally.vue'
 
 export default {
   name: 'App',
-  components: {
-    Board
-  },
+  components: {Board, Tally},
   data() {return{
     boardId: null,
     spyMasterCode: null,
+    tallyRed: 0,
+    tallyBlue: 0
   }},
   methods: {
     genCode: function() {
