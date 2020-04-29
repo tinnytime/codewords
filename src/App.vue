@@ -9,7 +9,7 @@
       <p v-if="isSpyMaster === true">Spy Master code: <input v-model="spyMasterCode"></p>
 
       <div v-if="boardId">
-        <Board :boardId="boardId" :isSpyMaster="isSpyMaster" :spyMasterCode="spyMasterCode" />
+        <Board :boardId="boardId" :boardWidth=5 :isSpyMaster="isSpyMaster" :spyMasterCode="spyMasterCode" />
         <Tally :tallyRed="tallyRed" :tallyBlue="tallyBlue" />
       </div>
     </div>
