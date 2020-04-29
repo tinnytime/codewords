@@ -4,10 +4,12 @@
 
     <div>
       <p>Board ID: <input v-model="boardId"></p>
-      <p>Spy Master code: <input v-model="spyMasterCode"></p>
+      <label for="sm0">Spy</label><input id="sm0" type="radio" name="spyMaster" @click="isSpyMaster = false" />
+      <label for="sm1">Spy Master</label><input id="sm1" type="radio" name="spyMaster" @click="isSpyMaster = true" />
+      <p v-if="isSpyMaster === true">Spy Master code: <input v-model="spyMasterCode"></p>
 
       <div v-if="boardId">
-        <Board :boardId="boardId" />
+        <Board :boardId="boardId" :isSpyMaster="isSpyMaster" :spyMasterCode="spyMasterCode" />
         <Tally :tallyRed="tallyRed" :tallyBlue="tallyBlue" />
       </div>
     </div>
@@ -23,8 +25,9 @@ export default {
   name: 'App',
   components: {Board, Tally},
   data() {return{
-    boardId: null,
-    spyMasterCode: null,
+    boardId: '',
+    isSpyMaster: false,
+    spyMasterCode: '',
     tallyRed: 0,
     tallyBlue: 0
   }},
